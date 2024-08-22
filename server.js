@@ -20,24 +20,12 @@ const db = new Client({
 
 db.connect();
 
-// app.get("/posts", async (req, res) => {
-//   try {
-//     const result = await db.query(`
-//       SELECT * FROM posts
-//       WHERE date_of_publishing <= NOW()
-//       ORDER BY date_of_publishing DESC;
-//     `);
-//     res.json(result.rows);
-//   } catch (err) {
-//     console.error("Error fetching posts:", err);
-//     res.status(500).send("Server error");
-//   }
-// });
-
 app.get("/posts", async (req, res) => {
   try {
     const result = await db.query(`
-      SELECT * FROM posts;
+      SELECT * FROM posts
+      WHERE date_of_publishing <= NOW()::DATE
+      ORDER BY date_of_publishing DESC;
     `);
     res.json(result.rows);
   } catch (err) {
