@@ -8,10 +8,10 @@ app.use(cors());
 app.use(bodyParser.json());
 
 const db = new Client({
-  user: "postgres",
-  host: "localhost",
-  database: "notes",
-  password: "Atenas9democraci.",
+  user: "root",
+  host: "dpg-cr3oo4btq21c73ec4jfg-a.oregon-postgres.render.com",
+  database: "efemerides",
+  password: "TDbVZnmA9iSoIGGwPDf04vb5Wuuj3S7p",
   port: 5432,
 });
 db.connect();
