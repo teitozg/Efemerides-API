@@ -13,7 +13,11 @@ const db = new Client({
   database: "efemerides",
   password: "TDbVZnmA9iSoIGGwPDf04vb5Wuuj3S7p",
   port: 5432,
+  ssl: {
+    rejectUnauthorized: false, // This is required to avoid issues with self-signed certificates
+  },
 });
+
 db.connect();
 
 app.get("/posts", async (req, res) => {
